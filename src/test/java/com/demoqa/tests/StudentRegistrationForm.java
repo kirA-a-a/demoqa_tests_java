@@ -1,6 +1,7 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,14 +17,15 @@ public class StudentRegistrationForm {
     static void conf () {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.holdBrowserOpen = true;
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
-    void registrationForm () {
+        void registrationForm () {
         open("/automation-practice-form");
+        executeJavaScript("$('footer').remove()");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-//        executeJavaScript($("footer").remove());
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Safronov");
         $("#userEmail").setValue("test@mail.ru");
@@ -33,16 +35,14 @@ public class StudentRegistrationForm {
         $(".react-datepicker__month-select").selectOption("August");
         $(".react-datepicker__year-select").selectOption("1996");
         $(".react-datepicker__day--030:not(react-datepicker__day--outside-month)").click();
-        $("#subjectsWrapper").setValue("Sport").pressEnter();
+        $("#subjectsInput").setValue("Math").pressEnter();
         $("#hobbies-checkbox-1").parent().click();
 //        $("#uploadPicture").uploadFile(new File("src/test/resources/img/1.png"));
         $("#uploadPicture").uploadFromClasspath("img/1.png");
         $("#currentAddress").setValue("other address");
         $("#state").click();
-//        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#react-select-3-option-0").click();
-        $("#city").$(byText("Delhi")).click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
-    }
-
-}
+}}
