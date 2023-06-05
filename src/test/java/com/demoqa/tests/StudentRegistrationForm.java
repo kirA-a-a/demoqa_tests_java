@@ -25,6 +25,7 @@ public class StudentRegistrationForm {
         void registrationForm () {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Safronov");
@@ -37,7 +38,6 @@ public class StudentRegistrationForm {
         $(".react-datepicker__day--030:not(react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("Math").pressEnter();
         $("#hobbies-checkbox-1").parent().click();
-//        $("#uploadPicture").uploadFile(new File("src/test/resources/img/1.png"));
         $("#uploadPicture").uploadFromClasspath("img/1.png");
         $("#currentAddress").setValue("other address");
         $("#state").click();
@@ -45,4 +45,6 @@ public class StudentRegistrationForm {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("#closeLargeModal").click();
 }}
