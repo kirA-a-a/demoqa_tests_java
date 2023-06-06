@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class StudentRegistrationForm {
 
     @BeforeAll
-    static void conf () {
+    static void conf() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
@@ -22,7 +22,7 @@ public class StudentRegistrationForm {
     }
 
     @Test
-        void registrationForm () {
+    void registrationForm() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
@@ -46,5 +46,16 @@ public class StudentRegistrationForm {
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(byText("Ivan Safronov"));
+        $(byText("test@mail.ru"));
+        $(byText("Male"));
+        $(byText("7999811835"));
+        $(byText("30 July,1996"));
+        $(byText("Maths"));
+        $(byText("Sports"));
+        $(byText("1.png"));
+        $(byText("other address"));
+        $(byText("NCR Delhi"));
         $("#closeLargeModal").click();
-}}
+    }
+}
