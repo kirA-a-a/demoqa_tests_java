@@ -46,16 +46,16 @@ public class StudentRegistrationForm {
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(byText("Ivan Safronov"));
-        $(byText("test@mail.ru"));
-        $(byText("Male"));
-        $(byText("7999811835"));
-        $(byText("30 July,1996"));
-        $(byText("Maths"));
-        $(byText("Sports"));
-        $(byText("1.png"));
-        $(byText("other address"));
-        $(byText("NCR Delhi"));
-        $("#closeLargeModal").click();
+
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Ivan Safronov"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("test@mail.ru"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7999811835"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("30 July,1996"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("1.png"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("other address"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Delhi"));
     }
 }
