@@ -2,6 +2,8 @@ package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import com.demoqa.tests.pages.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -11,14 +13,16 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentRegistrationForm extends TestBase{
+public class StudentRegistrationForm extends TestBase {
+
+
     @Test
     void registrationForm() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        $("#firstName").setValue("Ivan");
+        new RegistrationPage().setFirstName();
         $("#lastName").setValue("Safronov");
         $("#userEmail").setValue("test@mail.ru");
         $("#gender-radio-1").parent().click();
