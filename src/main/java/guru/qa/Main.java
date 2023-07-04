@@ -1,9 +1,15 @@
 package guru.qa;
 
+import static java.lang.System.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello");
+        out.println("Hello");
+
+        Main.sumInt(2147483647, 1);
+        Main.sumByte((byte) 127, (byte) 1);
+        Main.sumDifferent(5, 2.5);
     }
 // Задание 0
 
@@ -20,20 +26,24 @@ public class Main {
 
     // Задание 1
     public static int sumInt(int num1, int num2) {
-        return num1 + num2;
+        int result = num1 + num2;
+        System.out.println(result);
+        return result;
     }
-    int resultInt = sumInt(2147483647, 1);
 
-    public static int sumByte(int num1, int num2) {
-        return num1 + num2;
+    public static byte sumByte(byte num1, byte num2) {
+        byte result = (byte) (num1 + num2);
+        out.println(result);
+        return result;
     }
-    double resultByte = sumByte(127, 1);
 
     // Задание 2
 
 
     public static double sumDifferent(int num1, double num2) {
-        return (num1 + num2);
+        double result = num1 + num2;
+        out.println(result);
+        return result;
     }
 
 }
