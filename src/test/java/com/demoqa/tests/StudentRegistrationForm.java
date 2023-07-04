@@ -11,16 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentRegistrationForm {
-
-    @BeforeAll
-    static void conf() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-    }
-
+public class StudentRegistrationForm extends TestBase{
     @Test
     void registrationForm() {
         open("/automation-practice-form");
