@@ -15,16 +15,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationForm extends TestBase {
 
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void registrationForm() {
-        open("/automation-practice-form");
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        new RegistrationPage().setFirstName();
-        $("#lastName").setValue("Safronov");
-        $("#userEmail").setValue("test@mail.ru");
+        registrationPage.openPage()
+                .setFirstName("Ivan")
+                .setLastName("Safronov")
+                .setUserEmail("test@mail.ru")
+                .setGender("Other");
+
         $("#gender-radio-1").parent().click();
         $("#userNumber").setValue("79998118356");
         $("#dateOfBirthInput").click();
