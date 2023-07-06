@@ -23,14 +23,12 @@ public class StudentRegistrationForm extends TestBase {
                 .setFirstName("Ivan")
                 .setLastName("Safronov")
                 .setUserEmail("test@mail.ru")
-                .setGender("Other");
+                .setGender("Other")
+                .setData("30", "August", "1996");
 
-        $("#gender-radio-1").parent().click();
         $("#userNumber").setValue("79998118356");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("August");
-        $(".react-datepicker__year-select").selectOption("1996");
-        $(".react-datepicker__day--030:not(react-datepicker__day--outside-month)").click();
+
+
         $("#subjectsInput").setValue("Math").pressEnter();
         $("#hobbies-checkbox-1").parent().click();
         $("#uploadPicture").uploadFromClasspath("img/1.png");
