@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.tests.pages.RegistrationPage;
+import com.demoqa.tests.pages.components.CalendarComponent;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,7 @@ public class StudentRegistrationForm extends TestBase {
                 .setLastName("Safronov")
                 .setUserEmail("test@mail.ru")
                 .setGender("Other")
-                .setData("30", "August", "1996");
+                .setBirthDay("30", "August", "1996");
 
         $("#userNumber").setValue("79998118356");
 
